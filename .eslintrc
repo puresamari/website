@@ -1,0 +1,146 @@
+// .eslintrc
+{
+	"plugins": [
+		"prettier",
+		"@typescript-eslint"
+	],
+	"extends": [
+		"airbnb-typescript",
+		"react-app",
+		"prettier",
+		"plugin:@next/next/recommended",
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"project": "./tsconfig.json"
+	},
+	"settings": {
+		"import/resolver": {
+			"typescript": {
+				"alwaysTryTypes": true
+			}
+		},
+		"import/extensions": [
+			".js",
+			".jsx",
+			".ts",
+			".tsx"
+		]
+	},
+	"rules": {
+		"indent": "off", // because using prettier for indentation
+		"react/jsx-indent-props": "off",
+		"react/jsx-indent": "off",
+		"@typescript-eslint/indent": "off",
+		"object-curly-spacing": [
+			"warn",
+			"always"
+		],
+		"react/jsx-props-no-spreading": "off",
+		"import/prefer-default-export": "off",
+		"react/jsx-boolean-value": "off",
+		"react/require-default-props": "off",
+		"react/prop-types": "off",
+		"react/no-unescaped-entities": "off",
+		"react/jsx-one-expression-per-line": "off",
+		"react/jsx-wrap-multilines": "off",
+		"react/jsx-curly-newline": "off",
+		"react/destructuring-assignment": "off",
+		"react/state-in-constructor": "off",
+		"array-callback-return": "off",
+		"no-alert": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/no-access-state-in-setstate": "off",
+    "arrow-body-style": "off",
+		"no-nested-ternary": "off",
+    "no-param-reassign": ["error", { "props": false }],
+		"no-unused-vars": [
+			"warn",
+			{
+				"vars": "all",
+				"args": "none"
+			}
+		],
+		"react/no-unused-state": [
+			"warn"
+		],
+		"@typescript-eslint/no-unused-vars": [
+			"warn",
+			{
+				"vars": "all",
+				"args": "none"
+			}
+		],
+		"@typescript-eslint/no-explicit-any": ["off"],
+		"max-len": [
+			"warn",
+			{
+				"code": 150,
+				"ignoreStrings": true,
+				"ignoreTemplateLiterals": true,
+				"ignoreComments": true
+			}
+		],
+		"no-plusplus": [
+			"error",
+			{
+				"allowForLoopAfterthoughts": true
+			}
+		],
+		"react/jsx-key": "error",
+		"import/no-extraneous-dependencies": [
+			"warn",
+			{
+				"devDependencies": [
+					"**/*.test.js",
+					"**/*.test.jsx",
+					"**/*.test.ts",
+					"**/*.test.tsx",
+					"src/tests/**/*"
+				]
+			}
+		],
+		"jsx-a11y/no-static-element-interactions": [
+			"error",
+			{
+				"handlers": [
+					"onClick",
+					"onMouseDown",
+					"onMouseUp",
+					"onKeyPress",
+					"onKeyDown",
+					"onKeyUp"
+				]
+			}
+		],
+		"space-before-function-paren": [
+			"warn",
+			{
+				"anonymous": "never",
+				"asyncArrow": "always",
+				"named": "never"
+			}
+		],
+		"comma-dangle": [
+			"off",
+			{
+				"arrays": "always-multiline",
+				"exports": "always-multiline",
+				"functions": "never",
+				"imports": "always-multiline",
+				"objects": "always-multiline"
+			}
+		],
+		"@typescript-eslint/comma-dangle": [
+			"off",
+			{
+				"arrays": "always-multiline",
+				"exports": "always-multiline",
+				"functions": "never",
+				"imports": "always-multiline",
+				"objects": "always-multiline",
+				"enums": "always-multiline",
+			}
+		]
+	}
+}
