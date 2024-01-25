@@ -1,7 +1,6 @@
-import Image from 'next/image';
-import { FancyImage } from './fancy-image';
 import { Octokit } from '@octokit/core';
-import { Repo } from './repo.model';
+
+import { FancyImage } from './fancy-image';
 import { RepoCard } from './repo-card';
 
 const octokit = new Octokit({
@@ -29,7 +28,9 @@ export default async function Home() {
           </div>
           <FancyImage className="h-full flex w-auto" src="/me.png" width={3024} height={4032} alt="Me" />
         </div>
-        <h1 className="type-headline ml-8">THIS PAGE IS <span className='text-yellow-500'>WIP</span></h1>
+        <h1 className="type-headline ml-8">
+          THIS PAGE IS <span className="text-yellow-500">WIP</span>
+        </h1>
         <h1 className="type-headline">Simon rothert</h1>
         <h1 className="type-headline">Simon rothert</h1>
       </div>
