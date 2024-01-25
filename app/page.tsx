@@ -36,7 +36,7 @@ export default async function Home() {
       </div>
       <h2>My projects:</h2>
       {data
-        .filter(v => !v.fork)
+        .filter(v => !v.fork && !v.private)
         .map(v => (
           <RepoCard key={v.id} {...(v as any)} />
         ))}
