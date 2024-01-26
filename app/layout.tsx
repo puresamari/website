@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { FechDogFacts } from '@/utils/dog-facts';
 
 const poltawski = Poltawski_Nowy({ subsets: ['latin'] });
-const mplus = M_PLUS_Rounded_1c({ weight: ['100', '300'], subsets: ['latin'] });
+const mplus = M_PLUS_Rounded_1c({ weight: ['100', '300', '700'], subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App',

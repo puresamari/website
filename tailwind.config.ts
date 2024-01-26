@@ -50,6 +50,10 @@ const config: Config = {
       [{ 'fontFamily': ['M PLUS Rounded 1c', 'sans-serif'].join(' '), fontSize: '22px' }],
       [{ 'fontFamily': ['M PLUS Rounded 1c', 'sans-serif'].join(' '), fontSize: '14px' }],
     ),
+    makeTypeSet(
+      'chip',
+      [{ 'fontFamily': ['M PLUS Rounded 1c', 'sans-serif'].join(' '), fontSize: '9px', fontWeight: '700' }],
+    ),
   ],
 }
 export default config
