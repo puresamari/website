@@ -10,16 +10,20 @@
   },
   "dependencies": {
     "@octokit/core": "^5.1.0",
-    "classnames": "^2.3.2",
+    "classnames": "^2.5.1",
     "next": "14.0.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-markdown": "^9.0.1",
+    "react-syntax-highlighter": "^15.5.0",
+    "remark-gfm": "^4.0.0"
   },
   "devDependencies": {
     "@octokit/types": "^12.4.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-syntax-highlighter": "^15.5.11",
     "autoprefixer": "^10",
     "eslint": "^8",
     "eslint-config-next": "14.0.0",

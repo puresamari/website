@@ -2,14 +2,9 @@ import { Octokit } from '@octokit/core';
 
 import { FancyImage } from './fancy-image';
 import { RepoCard } from './repo-card';
-
-const octokit = new Octokit({
-  auth: process.env.GH,
-});
+import { octokit } from './octokit';
 
 export default async function Home() {
-  // GH
-  // const repos = await fetch('https://api.github.com/users/puresamari/repos');
   const { data } = await octokit.request('GET /users/{username}/repos', {
     username: 'puresamari',
     headers: {
