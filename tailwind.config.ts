@@ -23,8 +23,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        'mplus': ['M PLUS Rounded 1c', 'sans-serif'],
-        'poltawski': ['Poltawski Nowy', 'serif'],
+        mplus: ['var(--var-mplus)'],
+        poltawski: ['var(--var-poltawski)'],
       },
       keyframes: {
         'scroll-rtl': {
@@ -43,16 +43,16 @@ const config: Config = {
     },
   },
   plugins: [
-    makeTypeSet('headline', [{ fontFamily: ['Poltawski Nowy', 'serif'].join(' '), fontSize: '38px' }]),
+    makeTypeSet('headline', [{ fontFamily: 'var(--var-mplus)', fontSize: '38px' }]),
     makeTypeSet(
       'body',
-      [{ 'fontFamily': ['M PLUS Rounded 1c', 'sans-serif'].join(' '), fontSize: '28px' }],
-      [{ 'fontFamily': ['M PLUS Rounded 1c', 'sans-serif'].join(' '), fontSize: '22px' }],
-      [{ 'fontFamily': ['M PLUS Rounded 1c', 'sans-serif'].join(' '), fontSize: '14px' }],
+      [{ 'fontFamily': 'var(--var-poltawski)', fontSize: '28px' }],
+      [{ 'fontFamily': 'var(--var-poltawski)', fontSize: '22px' }],
+      [{ 'fontFamily': 'var(--var-poltawski)', fontSize: '14px' }],
     ),
     makeTypeSet(
       'chip',
-      [{ 'fontFamily': ['M PLUS Rounded 1c', 'sans-serif'].join(' '), fontSize: '9px', fontWeight: '700' }],
+      [{ 'fontFamily': 'var(--var-poltawski)', fontSize: '9px', fontWeight: '700' }],
     ),
   ],
 }

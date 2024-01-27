@@ -15,13 +15,15 @@ export const Markdown = ({ children }: { children: string }) => {
         h3: props => <h1 {...props} className=" type-body-3" />,
         ul: props => <ul {...props} className="pl-4 list-disc" />,
         ol: props => <ol {...props} className="pl-4 list-decimal" />,
+        p: props => <div {...props} />,
         code(props) {
           const { children, className, node, ref, ...rest } = props;
           return (
             <SyntaxHighlighter
               {...rest}
-              PreTag="div"
-              children={String(children).replace(/\n$/, '')}
+              PreTag="pre"
+              children={String(children)}
+              // children={String(children).replace(/\n$/, '')}
               language={/language-(\w+)/.exec(className || '')?.[1]}
               style={theme}
             />
