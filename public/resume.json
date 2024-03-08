@@ -1,0 +1,162 @@
+{
+  "selectedTemplate": 9,
+  "headings": {
+    "projects": "",
+    "awards": "",
+    "education": "Education",
+    "work": "Experience"
+  },
+  "basics": {
+    "name": "Simon Rothert",
+    "email": "puresamari@gmail.com",
+    "phone": "(+49) 162 2112747",
+    "website": "github.com/puresamari",
+    "location": {
+      "address": "Gordijnensteeg 3, Amsterdam, 1012 BT, NL"
+    }
+  },
+  "education": [
+    {
+      "institution": "Staatliche Berufsschule",
+      "endDate": "Jul 15",
+      "gpa": "",
+      "location": "Fürstenfeldbruck",
+      "studyType": "Computer programmer",
+      "startDate": "Sep 12"
+    }
+  ],
+  "work": [
+    {
+      "company": "BIYU",
+      "position": "CTO",
+      "startDate": "Dec 23",
+      "endDate": "Present",
+      "location": "Amsterdam",
+      "highlights": [
+        "Leading the planning and development of BIYU's comprehensive technology stack and architecture.",
+        "Coordinate the development team, facilitating code reviews to ensure quality and efficiency.",
+        "Provide regular updates and insights to the CEO, assisting in strategic decisions."
+      ]
+    },
+    {
+      "company": "BIYU",
+      "position": "Senior Full Stack Developer",
+      "startDate": "Dec 22",
+      "endDate": "Dec 23",
+      "location": "Munich/Amsterdam",
+      "highlights": [
+        "Planning and Building out BIYUs ReactNative application.",
+        "Working tightly with the design team to improve the UX of BIYU's Next.js-React storefront website.",
+        "Extending the pre-existing Nuxt-Vue back-office software.",
+        "Implement backend features using NestJS and TypeORM.",
+        "Creating and implementing cross company component system with the design team."
+      ]
+    },
+    {
+      "company": "Pickatale",
+      "position": "Senior Full Stack Developer",
+      "startDate": "March 22",
+      "endDate": "Dec 22",
+      "location": "Munich/Oslo",
+      "highlights": [
+        "Planning out and implementing features of Pickatale's native iOS Application using Swift and ObjectiveC.",
+        "Implementing the ebook reader for Pickatale's native application using Webpack and SwiftUI.",
+        "Implementing a mailing microservice with a templating engine using NestJS."
+      ]
+    },
+    {
+      "company": "SMAL Code",
+      "position": "Principal Developer",
+      "startDate": "Nov 20",
+      "endDate": "March 22",
+      "location": "Munich/Amsterdam",
+      "highlights": [
+        "Managing a development team of 4 developers.",
+        "Reporting to and planning out sprints with the CTO.",
+        "Building interactive Unity based 3D configurator.",
+        "Implementing Three.js based 3D inspectors of products.",
+        "Building online tool for communication between users and monteurs of solar panels."
+      ]
+    },
+    {
+      "company": "SMAL Code",
+      "position": "Developer",
+      "startDate": "Nov 15",
+      "endDate": "Nov 20",
+      "location": "Munich",
+      "highlights": [
+        "Frontend Web Development using various technologies.",
+        "Leveraging ReactJS, AngularJS, and Angular 2+ for frontend applications.",
+        "Building backend applications and managing databases."
+      ]
+    },
+    {
+      "company": "Ziba Design",
+      "position": "Web Developer",
+      "startDate": "Sep 15",
+      "endDate": "Oct 15",
+      "location": "Munich",
+      "highlights": [
+        "Frontend Web Development for various clients.",
+        "Maintaining and extending backend and frontend implementations."
+      ]
+    },
+    {
+      "company": "Freelogic GmbH",
+      "position": "Apprentice in Software development",
+      "startDate": "Sep 12",
+      "endDate": "Jul 15",
+      "location": "82205 Gilching, Germany",
+      "highlights": [
+        "Developed VB.Net extensions for internal CRM software.",
+        "Authored maintenance scripts using Bash."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "level": "",
+      "keywords": [
+        "Javascript / Typescript",
+        "Swift",
+        "PostCSS / SASS",
+        "Python",
+        "C/C++",
+        "C#",
+        "SQL / Postgres"
+      ],
+      "name": "Technical"
+    },
+    {
+      "keywords": [
+        "German (native)",
+        "English (fluent)"
+      ],
+      "name": "Languages"
+    }
+  ],
+  "projects": [],
+  "awards": [
+    {
+      "awarder": "iF DESIGN AWARD",
+      "title": "Communication Design Excellence",
+      "summary": "Awarded for the Vodafone Devices Website, this accolade recognizes outstanding design and development in communication, emphasizing a meticulous attention to detail and a user-centric approach. The site showcases Vodafone's latest products through compelling visuals, photorealistic renderings, and interactive animations, reflecting the campaign's slogan 'Take a closer look'. The project highlights innovation in delivering an engaging user experience and a seamless responsive design.",
+      "date": "2017"
+    },
+    {
+      "awarder": "Red Dot Design Award",
+      "title": "Innovative Product Design - Honourable Mention",
+      "summary": "Recognized for its exceptional design, the muun mattress received an Honourable Mention in the Product Design category. This innovative mattress showcases a modular design allowing adjustable comfort and firmness, integrating high-quality materials like raw silk and latex foam. Its design excellence lies in its functionality, adaptability, and the unique addition of a secret pocket, reflecting a commitment to both aesthetics and user-centered innovation.",
+      "date": "March 2018"
+    }
+  ],
+  "sections": [
+    "templates",
+    "profile",
+    "education",
+    "work",
+    "skills",
+    "projects",
+    "awards"
+  ]
+}
