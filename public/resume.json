@@ -8,9 +8,9 @@
   },
   "basics": {
     "name": "Simon Rothert",
-    "email": "puresamari@gmail.com",
+    "email": "simon@rothert.cc",
     "phone": "(+49) 162 2112747",
-    "website": "github.com/puresamari",
+    "website": "rothert.cc",
     "location": {
       "address": "Gordijnensteeg 3, Amsterdam, 1012 BT, NL"
     }
@@ -71,10 +71,9 @@
       "endDate": "March 22",
       "location": "Munich/Amsterdam",
       "highlights": [
-        "Managing a development team of 4 developers.",
-        "Reporting to and planning out sprints with the CTO.",
+        "Managing a development team of 4 developers and reporting to and planning out sprints with the CTO.",
         "Building interactive Unity based 3D configurator.",
-        "Implementing Three.js based 3D inspectors of products.",
+        "Implementing ThreeJS based 3D inspectors of products for enphase.com.",
         "Building online tool for communication between users and monteurs of solar panels."
       ]
     },
@@ -85,10 +84,11 @@
       "endDate": "Nov 20",
       "location": "Munich",
       "highlights": [
-        "Frontend Web Development using various technologies.",
-        "Leveraging ReactJS, AngularJS, and Angular 2+ for frontend applications.",
-        "Building backend applications and managing databases."
-      ]
+        "Executed Frontend Web Development with PHP, SCSS, PostCSS, JS/TS, utilizing Gulp, Grunt, Webpack for sites like elgato.com, smal.com, and bowerswilkins.com.",
+        "Utilized ReactJS, AngularJS, Angular 2+ for creating interactive frontends for applications such as premium.playboy.de and various backoffice software.",
+        "Developed backend solutions with Drupal, generating GraphQL schemas, and built tools using Django with real-time functionalities for enphase.com.",
+        "Crafted mobile applications with ReactNative and built the initial version of mygroove.app using Swift and C (PortAudio)."
+      ]      
     },
     {
       "company": "Ziba Design",
@@ -97,8 +97,8 @@
       "endDate": "Oct 15",
       "location": "Munich",
       "highlights": [
-        "Frontend Web Development for various clients.",
-        "Maintaining and extending backend and frontend implementations."
+        "Frontend Web Development using PHP, SCSS and JS through Gulp and Grunt to build ui for routers vodafone.de.",
+        "Maintaining and extending backend and frontend implementation of Magento based onlineshop for muun.co (a now defunct mattress shop)."
       ]
     },
     {
@@ -115,27 +115,37 @@
   ],
   "skills": [
     {
-      "level": "",
-      "keywords": [
-        "Javascript / Typescript",
-        "Swift",
-        "PostCSS / SASS",
-        "Python",
-        "C/C++",
-        "C#",
-        "SQL / Postgres"
-      ],
-      "name": "Technical"
+      "name": "Languages",
+      "keywords": ["Javascript / Typescript", "Swift", "Python", "C/C++", "C#"]
     },
     {
-      "keywords": [
-        "German (native)",
-        "English (fluent)"
-      ],
-      "name": "Languages"
+      "name": "Frameworks",
+      "keywords": ["ReactJS", "SwiftUI / Xib / Storyboard", "ReactNative", "TailwindCSS", "NuxtJS / NextJS"]
+    },
+    {
+      "name": "Tools",
+      "keywords": ["SQL/PostgreSQL/MongoDB", "GraphQL/Rest", "CircleCI/GH Actions", "Serverless/Kubernetes/Docker"]
+    },
+    {
+      "name": "Spoken",
+      "keywords": ["German (native)", "English (fluent)"]
     }
+    
   ],
-  "projects": [],
+  "projects": [
+    {
+      "name": "SimonLang Compiler",
+      "description": "A dedicated compiler for SimonLang, designed to convert SimonLang code into executable binaries. The compiler is developed using C and Assembly, providing a robust toolset for SimonLang developers. This project encapsulates the essence of combining low-level programming with custom language design to create efficient, executable software.",
+      "url": "github.com/puresamari/simon-compiler",
+      "keywords": ["Compiler", "C", "Assembly", "executable binary"]
+    },        
+    {
+      "name": "SPB (Simple Page Builder)",
+      "description": "A comprehensive suite of tools for simplifying website setup, SPB compiles/transpiles various languages (like TS, SASS, Pug) into a distributable folder. It includes core bundling functionality, a development server with hot reload, a CLI, and an upcoming app component.",
+      "url": "github.com/puresamari/spb",
+      "keywords": ["web development", "bundling", "transpiling", "npm", "hot reload"]
+    }    
+  ],
   "awards": [
     {
       "awarder": "iF DESIGN AWARD",
