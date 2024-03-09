@@ -10,7 +10,7 @@
     "name": "Simon Rothert",
     "email": "simon@rothert.cc",
     "phone": "(+49) 162 2112747",
-    "website": "rothert.cc",
+    "website": "rothert.cc, github.com/puresamari",
     "location": {
       "address": "Gordijnensteeg 3, Amsterdam, 1012 BT, NL"
     }
@@ -116,7 +116,7 @@
   "skills": [
     {
       "name": "Languages",
-      "keywords": ["Javascript / Typescript", "Swift", "Python", "C/C++", "C#"]
+      "keywords": ["Javascript / Typescript", "Swift", "Python", "C/C++"]
     },
     {
       "name": "Frameworks",

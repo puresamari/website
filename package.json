@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:resume": "pdflatex -output-directory=public/resume/pdf public/resume.tex"
   },
   "dependencies": {
     "@octokit/core": "^5.1.0",

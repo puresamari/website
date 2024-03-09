@@ -1,0 +1,258 @@
+\documentclass[fontsize=11pt]{article}
+    \usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage[svgnames]{xcolor}  % Colours by their 'svgnames'
+\usepackage[margin=0.75in]{geometry}
+  \textheight=700px
+\usepackage{url}
+\usepackage{lmodern} % Allow arbitrary font sizes
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{hyperref,xcolor}
+\usepackage{xparse}
+
+%% Define a new 'modern' style for the url package that will use a smaller font.
+\makeatletter
+\def\url@modernstyle{
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{}}}
+\makeatother
+\urlstyle{modern} %% And use the newly defined style.
+
+\frenchspacing              % Better looking spacings after periods
+\pagestyle{empty}           % No pagenumbers/headers/footers
+
+\renewcommand{\familydefault}{\sfdefault}
+
+% Command for a hyperlink with the URL as the link text
+\newcommand{\link}[1]{{\color{blue}\underline{\href{#1}{#1}}}}
+
+% Command for a hyperlink with custom text
+\newcommand{\maskedLink}[2]{{\color{blue}\underline{\href{#1}{#2}}}}
+
+%%% Custom sectioning (sectsty package)
+%%% ------------------------------------------------------------
+\usepackage{sectsty}
+
+\sectionfont{                 % Change font of \section command
+  \usefont{OT1}{phv}{b}{n}%   % bch-b-n: CharterBT-Bold font
+  \sectionrule{0pt}{0pt}{-5pt}{3pt}}
+
+%%% Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888}      % Box to align text
+\newcommand{\sepspace}{\vspace*{1em}}   % Vertical space macro
+
+\newcommand{\MyName}[1]{ % Name
+    \Huge \usefont{OT1}{phv}{b}{n} \hfill #1
+    \par \normalsize \normalfont}
+
+\newcommand{\MySlogan}[1]{ % Slogan (optional)
+    \large \usefont{OT1}{phv}{m}{n}\hfill \textit{#1}
+    \par \normalsize \normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+    \noindent\hangindent=2em\hangafter=0 % Indentation
+    \parbox{\spacebox}{                  % Box to align text
+    \textit{#1}}                      % Entry name (birth, address, etc.)
+    \hspace{1.5em} #2 \par}              % Entry value
+
+\newcommand{\SkillsEntry}[2]{                % Same as \PersonalEntry
+    \noindent\hangindent=2em\hangafter=0 % Indentation
+    \parbox{\spacebox}{                  % Box to align text
+    \textit{#1}}                    % Entry name (birth, address, etc.)
+    \hspace{1.5em} #2 \par}              % Entry value
+
+\newcommand{\AwardsEntry}[2]{                % Same as \PersonalEntry
+    \noindent\hangindent=2em\hangafter=0 % Indentation
+    \parbox{\spacebox}{                  % Box to align text
+    \textit{#1}}                    % Entry name (birth, address, etc.)
+    \hspace{1.5em} #2 \par}              % Entry value
+
+\newcommand{\EducationEntry}[4]{
+    \noindent \textbf{#1} \hfill      % Study
+    \colorbox{Black}{
+      \parbox{8.5em}{
+      \hfill\color{White}#2}} \par  % Duration
+    \noindent \textit{#3} \par        % School
+    \noindent\hangindent=2em\hangafter=0 \small #4 % Description
+    \normalsize \par}
+
+\newcommand{\WorkEntry}[4]{       % Same as \EducationEntry
+    \noindent \textbf{#1} \hfill      % Jobname
+    \colorbox{Black}{%
+      \parbox{9em}{%
+      \hfill\color{White}#2}} \par   % Duration
+        \noindent \textit{#3} \par        % Company
+    \noindent\hangindent=2em\hangafter=0 \small #4 % Description
+    \normalsize \par}
+
+\newcommand{\ProjectEntry}[4]{         % Similar to \EducationEntry
+    \noindent \textbf{#1} \noindent \textit{#3} \hfill {#2} \par
+    \noindent \small #4 % Description
+    \normalsize \par}
+
+\newcommand{\AwardEntry}[4]{         % Similar to \EducationEntry
+    \noindent \textbf{#1} \noindent \textit{#3} \hfill {#2} \par
+    \noindent \small #4 % Description
+    \normalsize \par}
+    \begin{document}
+
+\noindent
+\begin{minipage}{\linewidth}
+  \begin{minipage}[c]{\dimexpr\linewidth-3.5cm} % Allocate remaining width to text, adjust based on your image width + desired spacing
+    \raggedleft % Right-align the text
+    \MyName{Simon Rothert}
+    {\small simon@rothert.cc | (+49) 162 2112747 | Gordijnensteeg 3, Amsterdam, 1012 BT, NL}\\
+    {\small \link{rothert.cc} | \link{github.com/puresamari}}
+  \end{minipage}%
+  \hfill % Space between text and image, adjust if more space is needed
+  \begin{minipage}[c]{1.0425in} % Width of the image, adjust accordingly
+    \includegraphics[height=1.39in]{./public/me-hc.png} % The image aligned right
+  \end{minipage}
+\end{minipage}
+
+%%% Skills
+%%% ------------------------------------------------------------
+\NewPart{Skills}{}
+\SkillsEntry{Languages}{Javascript / Typescript, Swift, Python, C/C++, C\#}
+\SkillsEntry{Frameworks}{ReactJS, SwiftUI / Xib / Storyboard, ReactNative, TailwindCSS, NuxtJS / NextJS}
+\SkillsEntry{Tools}{SQL/PostgreSQL/MongoDB, GraphQL/Rest, CircleCI/GH Actions, Serverless/Kubernetes/Docker}
+\SkillsEntry{Spoken}{German (native), English (fluent)}
+
+
+%%% Work experience
+%%% ------------------------------------------------------------
+
+\NewPart{Experience}{}
+
+\WorkEntry
+{CTO}
+{Dec 23 - Present}
+{BIYU, Amsterdam}
+{\begin{itemize} \itemsep -1pt
+	\item Leading the planning and development of BIYU\textquotesingle{}s comprehensive technology stack and architecture.
+	\item Coordinate the development team, facilitating code reviews to ensure quality and efficiency.
+	\item Provide regular updates and insights to the CEO, assisting in strategic decisions.
+	\end{itemize}}
+\sepspace
+\WorkEntry
+{Senior Full Stack Developer}
+{Dec 22 - Dec 23}
+{BIYU, Munich/Amsterdam}
+{\begin{itemize} \itemsep -1pt
+	\item Planning and Building out BIYUs ReactNative application.
+	\item Working tightly with the design team to improve the UX of BIYU\textquotesingle{}s Next.js-React storefront website.
+	\item Extending the pre-existing Nuxt-Vue back-office software.
+	\item Implement backend features using NestJS and TypeORM.
+	\item Creating and implementing cross company component system with the design team.
+	\end{itemize}}
+\sepspace
+\WorkEntry
+{Senior Full Stack Developer}
+{March 22 - Dec 22}
+{Pickatale, Munich/Oslo}
+{\begin{itemize} \itemsep -1pt
+	\item Planning out and implementing features of Pickatale\textquotesingle{}s native iOS Application using Swift and ObjectiveC.
+	\item Implementing the ebook reader for Pickatale\textquotesingle{}s native application using Webpack and SwiftUI.
+	\item Implementing a mailing microservice with a templating engine using NestJS.
+	\end{itemize}}
+\sepspace
+\WorkEntry
+{Principal Developer}
+{Nov 20 - March 22}
+{SMAL Code, Munich/Amsterdam}
+{\begin{itemize} \itemsep -1pt
+	\item Managing a development team of 4 developers and reporting to and planning out sprints with the CTO.
+	\item Building interactive Unity based 3D configurator for \link{elgato.com}.
+	\item Implementing ThreeJS based 3D inspectors of products for \link{enphase.com}.
+	\item Building online tool for communication between users and monteurs of solar panels.
+	\end{itemize}}
+\sepspace
+\WorkEntry
+{Developer}
+{Nov 15 - Nov 20}
+{SMAL Code, Munich}
+{\begin{itemize} \itemsep -1pt
+	\item Executed Frontend Web Development with PHP, SCSS, PostCSS, JS/TS, utilizing Gulp, Grunt, Webpack for sites like \link{elgato.com}, \link{smal.de}, and \link{bowerswilkins.com}.
+	\item Utilized ReactJS, AngularJS, Angular 2+ for creating interactive frontends for applications such as premium.playboy.de and various backoffice software.
+	\item Developed backend solutions with Drupal, generating GraphQL schemas, and built tools using Django with real-time functionalities for \link{enphase.com}.
+	\item Crafted mobile applications with ReactNative and built the initial version of \link{mygroove.app} using Swift and C (PortAudio).
+	\end{itemize}}
+\sepspace
+\bigskip
+\WorkEntry
+{Web Developer}
+{Sep 15 - Oct 15}
+{Ziba Design, Munich}
+{\begin{itemize} \itemsep -1pt
+	\item Frontend Web Development using PHP, SCSS and JS through Gulp and Grunt to build ui for routers \link{vodafone.de}.
+	\item Maintaining and extending backend and frontend implementation of Magento based onlineshop for muun.co (a now defunct mattress shop).
+	\end{itemize}}
+\sepspace
+\WorkEntry
+{Apprentice in Software development}
+{Sep 12 - Jul 15}
+{Freelogic GmbH, 82205 Gilching, Germany}
+{\begin{itemize} \itemsep -1pt
+	\item Developed VB.Net extensions for internal CRM software.
+	\item Authored maintenance scripts using Bash.
+	\end{itemize}}
+
+%%% Projects
+%%% ------------------------------------------------------------
+\NewPart{Projects}{}
+
+\ProjectEntry{SimonLang Compiler}{\link{github.com/puresamari/simon-compiler}}
+{Compiler, C, Assembly, executable binary}
+{A dedicated compiler for SimonLang, designed to convert SimonLang code into executable binaries. The compiler is developed using C and Assembly, providing a robust toolset for SimonLang developers. This project encapsulates the essence of combining low-level programming with custom language design to create efficient, executable software.}
+
+\sepspace
+
+\ProjectEntry{ChatDB}{}
+{Electron, SQL, ChatGPT, database management, schema synchronization}
+{This innovative desktop application, built with Electron, is designed to transform database interactions. It allows users to intuitively query their databases using conversational language, enabling requests like "all users who ordered a product last week" through its intelligent schema comprehension. The seamless integration simplifies data retrieval and revolutionizes the user experience, making database queries more intuitive and accessible.}
+
+\sepspace
+
+\ProjectEntry{MyTales}{}
+{ChatGPT, NextJS, React, TailwindCSS, MongoDB}
+{This inventive storytelling tool leverages ChatGPT to craft endless, dynamic narratives, intelligently tracking characters, locations, and items to keep the story coherent. It seamlessly feeds context back to the AI, ensuring consistent, immersive tales, while a user-friendly interface provides instant access to inventories and detailed insights, enriching the interactive storytelling experience.}
+
+\sepspace
+
+\ProjectEntry{SPB (Simple Page Builder)}{\link{github.com/puresamari/spb}}
+{web development, bundling, transpiling}
+{A comprehensive suite of tools for simplifying website setup, SPB compiles/transpiles various languages (like TS, SASS, Pug) into a distributable folder. It includes core bundling functionality, a development server with hot reload, a CLI, and an upcoming app component.}
+
+%%% Awards
+%%% ------------------------------------------------------------
+\NewPart{Awards}{}
+
+\AwardEntry{Vodafone Devices Website}{\maskedLink{https://ifdesign.com/en/winner-ranking/project/vodafone-devices-website/208757}{iF DESIGN AWARD}}
+{2017}
+{Awarded for the Vodafone Devices Website, this accolade recognizes outstanding design and development in communication, emphasizing a meticulous attention to detail and a user-centric approach. The site showcases Vodafone\textquotesingle{}s latest products through compelling visuals, photorealistic renderings, and interactive animations, reflecting the campaign\textquotesingle{}s slogan \textquotesingle{}Take a closer look\textquotesingle{}. The project highlights innovation in delivering an engaging user experience and a seamless responsive design.}
+
+\sepspace
+
+\AwardEntry{Muun mattress}{\maskedLink{https://www.red-dot.org/project/muun-7082}{Red Dot Design Award}}
+{March 2018}
+{Recognized for its exceptional design, the muun mattress received an Honourable Mention in the Product Design category. This innovative mattress showcases a modular design allowing adjustable comfort and firmness, integrating high-quality materials like raw silk and latex foam. Its design excellence lies in its functionality, adaptability, and the unique addition of a secret pocket, reflecting a commitment to both aesthetics and user-centered innovation.}
+
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Education}{}
+\EducationEntry
+{Computer programmer}
+{Sep 12 - Jul 15}
+{Staatliche Berufsschule, Fürstenfeldbruck}
+
+\ 
+\end{document}
