@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Poltawski_Nowy, M_PLUS_Rounded_1c } from 'next/font/google';
+import { Poltawski_Nowy, M_PLUS_Rounded_1c, Oswald } from 'next/font/google';
 import './globals.css';
 import classNames from 'classnames';
 import { FechDogFacts } from '@/utils/dog-facts';
@@ -7,6 +7,12 @@ import { FechDogFacts } from '@/utils/dog-facts';
 const poltawski = Poltawski_Nowy({
   subsets: ['latin'],
   variable: '--var-mplus',
+  display: 'swap',
+});
+
+const oswald = Oswald({
+  subsets: ['latin'],
+  variable: '--var-oswald',
   display: 'swap',
 });
 
@@ -26,7 +32,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const quotes = await FechDogFacts();
   return (
     <html lang="en">
-      <body className={classNames(poltawski.variable, mplus.variable)}>
+      <body className={classNames(poltawski.variable, oswald.variable, mplus.variable)}>
         <div className="border-b-2 fixed top-0 w-full" />
         <div className="flex flex-row whitespace-nowrap type-body-1 will-change-transform group w-screen overflow-hidden">
           {new Array(2).fill(null).map((_, i) => (
@@ -58,8 +64,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             </div>
           ))}
         </div>
-        <div className="flex flex-row w-screen overflow-hidden relative">
-          <main className="flex flex-col">{children}</main>
+        <main className="flex flex-col">{children}</main>
+        {/* <div className="flex flex-row w-screen overflow-hidden relative">
           <div className="relative">
             <div className="w-16 h-16 flex flex-col justify-between cursor-pointer sticky top-0">
               <div className="flex w-full border-b" />
@@ -67,7 +73,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <div className="flex w-full border-b-2" />
             </div>
           </div>
-        </div>
+        </div> */}
       </body>
     </html>
   );

@@ -2,6 +2,7 @@ import { Endpoints } from '@octokit/types';
 import { octokit } from './octokit';
 import { Markdown } from '../components/markdown';
 import { Collapsible } from '@/components/collapsible';
+import { Panel, Theme } from '@/components/panel.component';
 
 const RepoReadme = async (repo: Endpoints['GET /repos/{owner}/{repo}']['response']['data']) => {
   try {
@@ -14,20 +15,23 @@ const RepoReadme = async (repo: Endpoints['GET /repos/{owner}/{repo}']['response
       mediaType: { format: 'raw' },
     });
     return (
-      <Collapsible>
-        <Markdown>{readme as any}</Markdown>
-      </Collapsible>
+      <Markdown>{readme as any}</Markdown>
+      // <Collapsible>
+      // </Collapsible>
     );
   } catch (e) {
     return <></>;
   }
 };
 
-export const RepoCard = async (repo: Endpoints['GET /repos/{owner}/{repo}']['response']['data']) => {
+export const RepoCard = async ({
+  theme,
+  ...repo
+}: Endpoints['GET /repos/{owner}/{repo}']['response']['data'] & { theme: Theme }) => {
   return (
-    <>
-      <hr className="mb-4" />
-      <h2 className="ml-4">{repo.name}</h2>
+    <Panel theme={theme} label={repo.name}>
+      {/* <hr className="mb-4" />
+      <h2 className="ml-4">{repo.name}</h2> */}
       <div className="ml-4">
         <sup className="bg-yellow rounded-full px-1 py-[0.5] bg-yellow-500 ml-1 text-black type-chip">
           {repo.language}
@@ -35,6 +39,6 @@ export const RepoCard = async (repo: Endpoints['GET /repos/{owner}/{repo}']['res
       </div>
       <p className="ml-4 type-body-3 mb-8">{repo.description}</p>
       <RepoReadme {...repo} />
-    </>
+    </Panel>
   );
 };

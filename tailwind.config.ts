@@ -1,18 +1,27 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 import { PluginCreator } from 'tailwindcss/types/config';
 
 type FontAttributes = Partial<HTMLParagraphElement['style']>;
 
-const makeTypeSet = (name: string, ...sets: [FontAttributes, ...{ screen: string, attributes: FontAttributes }[]][]): PluginCreator =>
+const makeTypeSet =
+  (name: string, ...sets: [FontAttributes, ...{ screen: string; attributes: FontAttributes }[]][]): PluginCreator =>
   ({ addUtilities }) => {
     addUtilities(
-      sets.reduce((set, [baseAttributes, ...attributes], index) => Object.assign(set, {
-        [`.type-${name}${sets.length > 1 ? `-${index + 1}` : ''}`]: attributes.reduce((all, { screen, attributes: attributesForScreen }) => Object.assign(all, {
-          [`@screen ${screen}`]: attributesForScreen
-        }), baseAttributes)
-      }
-      ), {}))
-  }
+      sets.reduce(
+        (set, [baseAttributes, ...attributes], index) =>
+          Object.assign(set, {
+            [`.type-${name}${sets.length > 1 ? `-${index + 1}` : ''}`]: attributes.reduce(
+              (all, { screen, attributes: attributesForScreen }) =>
+                Object.assign(all, {
+                  [`@screen ${screen}`]: attributesForScreen,
+                }),
+              baseAttributes,
+            ),
+          }),
+        {},
+      ),
+    );
+  };
 
 const config: Config = {
   content: [
@@ -34,26 +43,27 @@ const config: Config = {
         'scroll-rtl-2': {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-200%)' },
-        }
+        },
       },
       animation: {
         'news-ticker': 'scroll-rtl 80s -80s linear infinite',
         'news-ticker-2': 'scroll-rtl-2 80s -40s linear infinite',
-      }
+      },
     },
   },
   plugins: [
-    makeTypeSet('headline', [{ fontFamily: 'var(--var-mplus)', fontSize: '38px' }]),
+    makeTypeSet(
+      'headline',
+      [{ fontFamily: 'var(--var-mplus)', fontSize: '38px' }],
+      [{ fontFamily: 'var(--var-oswald)', fontSize: '30px' }],
+    ),
     makeTypeSet(
       'body',
-      [{ 'fontFamily': 'var(--var-poltawski)', fontSize: '28px' }],
-      [{ 'fontFamily': 'var(--var-poltawski)', fontSize: '22px' }],
-      [{ 'fontFamily': 'var(--var-poltawski)', fontSize: '14px' }],
+      [{ fontFamily: 'var(--var-poltawski)', fontSize: '28px' }],
+      [{ fontFamily: 'var(--var-poltawski)', fontSize: '22px' }],
+      [{ fontFamily: 'var(--var-poltawski)', fontSize: '14px' }],
     ),
-    makeTypeSet(
-      'chip',
-      [{ 'fontFamily': 'var(--var-poltawski)', fontSize: '9px', fontWeight: '700' }],
-    ),
+    makeTypeSet('chip', [{ fontFamily: 'var(--var-poltawski)', fontSize: '9px', fontWeight: '700' }]),
   ],
-}
-export default config
+};
+export default config;
