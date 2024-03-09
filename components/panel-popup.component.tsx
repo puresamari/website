@@ -12,20 +12,29 @@ export const PanelPopup = memo<{
   label: ReactNode;
   className: string;
   close(): void;
-}>(({ children, className, label, close }) => {
+  show?: boolean;
+}>(({ children, className, label, close, show = false }) => {
   return createPortal(
     <motion.section
-      variants={{ show: { opacity: 1, y: 0 }, hide: { opacity: 0, y: 32 } }}
+      variants={{ show: { opacity: 1 }, hide: { opacity: 0 } }}
       initial="hide"
-      animate="show"
+      animate={show ? 'show' : 'hide'}
       exit="hide"
-      className={classNames('backdrop-blur-sm bg-black/50 fixed inset-0 z-50 flex flex-col overflow-auto')}
+      className={classNames('backdrop-blur-sm bg-black/50 fixed inset-0 z-50 flex flex-col overflow-auto', {
+        'pointer-events-none': !show,
+      })}
     >
       <div onClick={close} className=" min-h-[4rem] w-full cursor-pointer flex flex-grow"></div>
-      <div className={classNames(className, 'flex w-full flex-col p-4')}>
+      <motion.div
+        variants={{ show: { y: 0 }, hide: { y: 32 } }}
+        initial="hide"
+        animate={show ? 'show' : 'hide'}
+        exit="hide"
+        className={classNames(className, 'flex w-full flex-col p-4')}
+      >
         <h2 className="type-headline-2 mb-4 border-b-2 border-inherit">{label}</h2>
         {children}
-      </div>
+      </motion.div>
     </motion.section>,
     document.body,
   );
@@ -43,18 +52,16 @@ export const PanelPopupTitle = memo<{
         <h2
           className={classNames(
             'absolute bottom-0 type-headline-2 uppercase h-7 group-hover:h-12 transition-all overflow-hidden px-2 w-full',
-            colorCls
+            colorCls,
           )}
         >
           {label}
         </h2>
       </div>
       <AnimatePresence>
-        {open && (
-          <PanelPopup label={label} close={() => setOpen(false)} className={colorCls}>
-            {children}
-          </PanelPopup>
-        )}
+        <PanelPopup label={label} close={() => setOpen(false)} className={colorCls} show={open}>
+          {children}
+        </PanelPopup>
       </AnimatePresence>
     </>
   );
