@@ -2,7 +2,7 @@ import { Endpoints } from '@octokit/types';
 import { octokit } from './octokit';
 import { Markdown } from '../components/markdown';
 import { Collapsible } from '@/components/collapsible';
-import { Panel, Theme } from '@/components/panel.component';
+import { Panel, Theme } from '@/components/panel/panel.component';
 
 const RepoReadme = async (repo: Endpoints['GET /repos/{owner}/{repo}']['response']['data']) => {
   try {
