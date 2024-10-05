@@ -3,6 +3,7 @@ import { Poltawski_Nowy, M_PLUS_Rounded_1c, Oswald } from 'next/font/google';
 import './globals.css';
 import classNames from 'classnames';
 import { FechDogFacts } from '@/utils/dog-facts';
+import { Panel } from '@/components/panel/panel.component';
 
 const poltawski = Poltawski_Nowy({
   subsets: ['latin'],
@@ -59,21 +60,38 @@ export default async function RootLayout({ children }: { children: React.ReactNo
                       'group-hover:pt-2 group-hover:pb-14 bg-pink-500 text-orange-200',
                     ][quoteI % 5],
                   )}
-                >{`"${quote}"`}</span>
+                >
+                  {`"${quote}"`}
+                </span>
               ))}
             </div>
           ))}
         </div>
-        <main className="flex flex-col">{children}</main>
-        {/* <div className="flex flex-row w-screen overflow-hidden relative">
-          <div className="relative">
-            <div className="w-16 h-16 flex flex-col justify-between cursor-pointer sticky top-0">
-              <div className="flex w-full border-b" />
-              <div className="flex w-full border-b-8" />
-              <div className="flex w-full border-b-2" />
-            </div>
-          </div>
-        </div> */}
+        <main className="flex flex-col">
+          {children}
+
+          <Panel theme="white" label="Footer" full>
+            <footer className="text-left">
+              <p>Crafted with ❤️ by Simon Rothert.</p>
+              <br />
+              Reach out on
+              <a
+                href="mailto:simon@rothert.cc"
+                className="ml-2 underline hover:no-underline text-blue-600 underline-offset-8"
+              >
+                Email
+              </a>
+              <br />
+              or check out my
+              <a
+                href="https://github.com/puresamari"
+                className="ml-2 underline hover:no-underline text-blue-600 underline-offset-8"
+              >
+                GitHub
+              </a>
+            </footer>
+          </Panel>
+        </main>
       </body>
     </html>
   );

@@ -1,10 +1,12 @@
 import { Endpoints } from '@octokit/types';
 import { octokit } from './octokit';
-import { Markdown } from '../components/markdown';
+import { Markdown } from '../../components/markdown';
 import { Collapsible } from '@/components/collapsible';
 import { Panel, Theme } from '@/components/panel/panel.component';
 
-const RepoReadme = async (repo: Endpoints['GET /repos/{owner}/{repo}']['response']['data']) => {
+export type PropsData = Pick<Endpoints['GET /repos/{owner}/{repo}']['response']['data'], 'owner' | 'language' | 'description' | 'name'>
+
+const RepoReadme = async (repo: PropsData) => {
   try {
     const { data: readme } = await octokit.request('GET /repos/{owner}/{repo}/readme', {
       owner: repo.owner.name || 'puresamari',
@@ -27,7 +29,7 @@ const RepoReadme = async (repo: Endpoints['GET /repos/{owner}/{repo}']['response
 export const RepoCard = async ({
   theme,
   ...repo
-}: Endpoints['GET /repos/{owner}/{repo}']['response']['data'] & { theme: Theme }) => {
+}: PropsData & { theme: Theme }) => {
   return (
     <Panel theme={theme} label={repo.name}>
       {/* <hr className="mb-4" />

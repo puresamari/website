@@ -3,7 +3,7 @@
 import classNames from 'classnames';
 import { createContext, memo, useContext, useMemo } from 'react';
 
-export type Theme = 'red' | 'beige' | 'green' | 'black' | 'white' | 'blue' | 'pink';
+export type Theme = 'red' | 'beige' | 'green' | 'black' | 'white' | 'blue' | 'pink' | 'yellow' | 'orange';
 
 const PanelContext = createContext<Theme>('white');
 
@@ -12,7 +12,8 @@ export const usePanelContext = () => {
   return useMemo(
     () => ({
       colorCls: classNames({
-        // 'color-white': theme === 'black' || theme === 'green',
+        'bg-yellow-500 text-yellow-800 border-yellow-800': theme === 'yellow',
+        'bg-orange-500 text-orange-800 border-orange-800': theme === 'orange',
         'bg-white text-red-500 border-red-500': theme === 'red',
         'bg-orange-100 text-orange-800 border-orange-800': theme === 'beige',
         'bg-emerald-500 text-black border-black': theme === 'green',
