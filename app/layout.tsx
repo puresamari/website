@@ -70,7 +70,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <main className="flex flex-col">
           {children}
 
-          <Panel theme="white" label="Footer" full>
+          <Panel theme="white" label="Footer">
             <footer className="text-left">
               <p>Crafted with ❤️ by Simon Rothert.</p>
               <br />

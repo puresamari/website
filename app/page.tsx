@@ -23,20 +23,27 @@ export default async function Home() {
         <Panel
           theme="black"
           label="サイモン・ルーカス・ロット"
-          full
-          sticky={{
-            children: <FancyImage className="h-auto flex w-64" src="/me.png" width={3024} height={4032} alt="Me" />,
-          }}
         >
-          <p className="mt-4">
-            Simon Rothert: a masterful tech maestro, skillfully orchestrating a symphony of code across continents,
-            crafting digital wonders from the intricate web of languages, frameworks, and projects, all while garnishing
-            his career with a sprinkle of design accolades.
-          </p>
-          <p className="type-body-3 mt-2 underline">- ChatGPT, March 2024</p>
+          <div className='flex flex-row'>
+            <div className='flex flex-col'>
+
+              <p className="mt-4">
+                Simon Rothert: a masterful tech maestro, skillfully orchestrating a symphony of code across continents,
+                crafting digital wonders from the intricate web of languages, frameworks, and projects, all while garnishing
+                his career with a sprinkle of design accolades.
+              </p>
+              <p className="type-body-3 mt-2 underline">- ChatGPT, March 2024</p>
+            </div>
+
+            <div className='flex flex-row'>
+              <FancyImage className="h-auto flex w-64" src="/me.png" width={3024} height={4032} alt="Me" />
+            </div>
+
+          </div>
+
         </Panel>
 
-        <Panel theme="beige" label="Projects" full>
+        <Panel theme="beige" label="Projects">
           <ul>
             {Object.keys(groups).map((language) => (
               <li key={language}>

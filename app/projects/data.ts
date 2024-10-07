@@ -1,19 +1,19 @@
 import { octokit } from './octokit';
-import { PropsData } from './repo-card';
+import { RepoCardPropsData } from './repo-card';
 
-type Project = PropsData & {
-  id: number;
-  url?: string;
+type Project = RepoCardPropsData & {
+  key: string;
   stars?: number;
   forks?: number;
   language: string;
+  description?: string;
+  url: string;
 };
 
-type ProjectGroups = {
-  [language: string]: Project[];
-};
+type Projects = { [key: string]: Project };
+type ProjectGroups = { [language: string]: Project[] };
 
-export const GetProjectGroups = async () => {
+export const GetProjects = async (): Promise<Projects> => {
   const { data } = await octokit.request('GET /users/{username}/repos', {
     username: 'puresamari',
     headers: {
@@ -24,25 +24,31 @@ export const GetProjectGroups = async () => {
 
   return data
     .filter(v => !v.fork && !v.private)
-    .sort((a, b) => (!b.language ? -1 : 0))
     .reduce((all, current) => {
       const project: Project = {
-        id: current.id,
+        // id: current.id,
+        key: current.name.toLowerCase(),
         name: current.name,
-        description: current.description,
-        url: current.html_url,
+        description: current.description || undefined,
+        // url: current.html_url,
         stars: current.stargazers_count,
         forks: current.forks,
-        language: current.language || 'other',
         owner: current.owner,
+        language: current.language || 'other',
+        url: current.html_url,
       };
 
-      if (!all[project.language]) {
-        all[project.language] = [];
-      }
+      return { ...all, [project.key]: project };
+    }, {} as Projects);
+};
 
+export const GetProjectByKey = async (key: string): Promise<Project | undefined> => (await GetProjects())[key];
+
+export const GetProjectGroups = async () =>
+  (Object.values(await GetProjects()) as Project[])
+    .sort((a, b) => (!b.language ? -1 : 0))
+    .reduce((all, project) => {
+      if (!all[project.language]) all[project.language] = [];
       all[project.language].push(project);
-
       return all;
     }, {} as ProjectGroups);
-};
