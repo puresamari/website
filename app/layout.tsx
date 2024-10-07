@@ -33,7 +33,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const quotes = await FechDogFacts();
   return (
     <html lang="en">
-      <body className={classNames(poltawski.variable, oswald.variable, mplus.variable)}>
+      <body className={classNames(poltawski.variable, oswald.variable, mplus.variable, 'basis-[100vh] min-h-screen flex flex-col')}>
         <div className="border-b-2 fixed top-0 w-full" />
         <div className="flex flex-row whitespace-nowrap type-body-1 will-change-transform group w-screen overflow-hidden">
           {new Array(2).fill(null).map((_, i) => (
@@ -67,31 +67,30 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             </div>
           ))}
         </div>
-        <main className="flex flex-col">
+        <main className="flex flex-col basis-[100%]">
           {children}
-
-          <Panel theme="white" label="Footer">
-            <footer className="text-left">
-              <p>Crafted with ❤️ by Simon Rothert.</p>
-              <br />
-              Reach out on
-              <a
-                href="mailto:simon@rothert.cc"
-                className="ml-2 underline hover:no-underline text-blue-600 underline-offset-8"
-              >
-                Email
-              </a>
-              <br />
-              or check out my
-              <a
-                href="https://github.com/puresamari"
-                className="ml-2 underline hover:no-underline text-blue-600 underline-offset-8"
-              >
-                GitHub
-              </a>
-            </footer>
-          </Panel>
         </main>
+        <Panel theme="white" label="Footer" className='mt-auto'>
+          <footer className="text-left">
+            <p>Crafted with ❤️ by Simon Rothert.</p>
+            <br />
+            Reach out on
+            <a
+              href="mailto:simon@rothert.cc"
+              className="ml-2 underline hover:no-underline text-blue-600 underline-offset-8"
+            >
+              Email
+            </a>
+            <br />
+            or check out my
+            <a
+              href="https://github.com/puresamari"
+              className="ml-2 underline hover:no-underline text-blue-600 underline-offset-8"
+            >
+              GitHub
+            </a>
+          </footer>
+        </Panel>
       </body>
     </html>
   );
